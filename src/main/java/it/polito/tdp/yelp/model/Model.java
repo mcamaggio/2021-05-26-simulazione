@@ -29,8 +29,11 @@ public class Model {
 	}
 	
 	public String creaGrafo(String city, Year anno) {
+		// CREO IL GRAFO
 		this.grafo = new SimpleDirectedWeightedGraph<Business, DefaultWeightedEdge>(DefaultWeightedEdge.class) ;
 		YelpDao dao = new YelpDao() ;
+		
+		// AGGIUNGO I VERTICI
 		this.vertici = dao.getBusinessByCityAndYear(city, anno) ;
 		this.verticiIdMap = new HashMap<>() ;
 		for(Business b : this.vertici)
